@@ -1,0 +1,91 @@
+{%- assign right_collection = collections[section.settings.right_collection] -%}
+{%- assign left_collection = collections[section.settings.left_collection] -%}
+
+<section id="double-feature">
+  <div class="row justify-content-center df">
+    <div class="col-lg-5 col-md-6 col-sm-12 order-sm-12 right-f">
+      <a href="{{ right_collection.url }}">
+        <img src="{{ right_collection.image | img_url: 'large' }}" class="right-f-img"/>
+        <div class="feature-title">
+          <span style="color: {{ section.settings.right_title_color }}; background-color: {{ section.settings.right_bg_color | color_modify: 'alpha', section.settings.right_bg_opacity}}">{{ right_collection.title }}</span>
+        </div>
+      </a>
+    </div>
+    <div class="col-lg-5 col-md-6 col-sm-12 left-f">
+      <a href="{{ left_collection.url }}">
+        <div class="feature-title">
+          <span style="color: {{ section.settings.left_title_color }}; background-color: {{ section.settings.left_bg_color | color_modify: 'alpha', section.settings.left_bg_opacity}}">{{ left_collection.title }}</span>
+        </div>
+        <img src="{{ left_collection.image | img_url: 'large' }}" class="left-f-img" />
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Double Feature",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "right_collection",
+      "label": "Right Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "collection",
+      "id": "left_collection",
+      "label": "Left Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "color",
+      "id": "right_title_color",
+      "label": "Right Title Color",
+      "default": "#5C320B"
+    },
+    {
+      "type": "color",
+      "id": "left_title_color",
+      "label": "Left Title Color",
+      "default": "#5C320B"
+    },
+    {
+      "type": "color",
+      "id": "right_bg_color",
+      "label": "Right Background Color",
+      "default": "#FCA24E"
+    },
+    {
+      "type": "range",
+      "id": "right_bg_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Right Background Opacity",
+      "default": 0.80
+    },
+    {
+      "type": "color",
+      "id": "left_bg_color",
+      "label": "Left Background Color",
+      "default": "#FCA24E"
+    },
+    {
+      "type": "range",
+      "id": "left_bg_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Left Background Opacity",
+      "default": 0.80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Double Feature",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

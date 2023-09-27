@@ -1,0 +1,131 @@
+<section id="gallery">
+  <span class="title">Gallery</span>
+  <div class="top-content">
+    <div class="container-fluid">
+      <div id="carousel-operator" class="carousel slide" data-interval="false">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+            {%- if section.settings.carousel1 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                <img src="{{ section.settings.carousel1 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img1">
+            </div>
+            {% else %}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
+                <img src="{{ 'salted_caramel.jpeg' | asset_url }}" class="img-fluid mx-auto d-block" alt="img1">
+            </div>
+            {% endif %}
+            {%- if section.settings.carousel2 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ section.settings.carousel2 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img2">
+            </div>
+            {% else %}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ 'COCOA-AND-PEANUT-BUTTER-OAT-BALLS-1.jpg' | asset_url }}" class="img-fluid mx-auto d-block" alt="img2">
+            </div>
+            {% endif %}
+            {%- if section.settings.carousel3 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ section.settings.carousel3 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img3">
+            </div>
+            {% else %}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ 'Paleo-Sea-Turtles.jpg' | asset_url }}" class="img-fluid mx-auto d-block" alt="img3">
+            </div>
+            {% endif %}
+            {%- if section.settings.carousel4 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ section.settings.carousel4 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img4">
+            </div>
+            {% else %}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ 'small-bowl-of-peanut-butter-balls-1-of-1-683x1024.jpg' | asset_url }}" class="img-fluid mx-auto d-block" alt="img4">
+            </div>
+            {% endif %}
+            {%- if section.settings.carousel5 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ section.settings.carousel5 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img5">
+            </div>
+            {% endif %}
+            {%- if section.settings.carousel6 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ section.settings.carousel6 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img6">
+            </div>
+            {% endif %}
+            {%- if section.settings.carousel7 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ section.settings.carousel7 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img7">
+            </div>
+            {% endif %}
+            {%- if section.settings.carousel8 != blank -%}
+            <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                <img src="{{ section.settings.carousel8 | img_url: 'large' }}" class="img-fluid mx-auto d-block" alt="img8">
+            </div>
+            {% endif %}
+        </div>
+        {%- if section.settings.carousel5 != blank -%}
+        <a class="carousel-control-prev" href="#carousel-operator" role="button" data-slide="prev">
+            <img src="{{ 'prev-icon.png' | asset_url }}" alt="perv" />
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-operator" role="button" data-slide="next">
+            <img src="{{ 'next-icon.png.png' | asset_url }}" alt="next"/>
+            <span class="sr-only">Next</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Carousel",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "carousel1",
+      "label": "Carousel 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel2",
+      "label": "Carousel 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel3",
+      "label": "Carousel 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel4",
+      "label": "Carousel 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel5",
+      "label": "Carousel 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel6",
+      "label": "Carousel 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel7",
+      "label": "Carousel 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "carousel8",
+      "label": "Carousel 8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

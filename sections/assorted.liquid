@@ -1,0 +1,60 @@
+{%- assign assortments = collections[section.settings.assortments] -%}
+
+<section id="assorted"
+{%- if assortments.image -%}
+style="background-image: url('{{ assortments.image | img_url: 'large' }}'); background-size: cover; height: 360px; width: 100%; background-position: center;"
+{% endif %}>
+    <div class="assorted-label">
+      <span style="background-color: {{ section.settings.sale_bg_color | color_modify: 'alpha', section.settings.sale_bg_opacity }}" class="title">{{ assortments.description }}<br />
+        <br />
+        <a href="{{ assortments.url }}" style="background-color: {{ section.settings.shop_button_color }}"class="shop-button">{{ section.settings.shop_button }} {{ assortments.title }}</a>
+      </span>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Assorted",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "assortments",
+      "label": "Assortments",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "text",
+      "id": "shop_button",
+      "label": "Shop Button Title",
+      "default": "Shop"
+    },
+    {
+      "type": "color",
+      "id": "sale_bg_color",
+      "label": "Sale Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "shop_button_color",
+      "label": "Shop Button Color",
+      "default": "#361D06"
+    },
+    {
+      "type": "range",
+      "id": "sale_bg_opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "label": "Sale Background Opacity",
+      "default": 0.60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Assorted",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

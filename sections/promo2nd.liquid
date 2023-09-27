@@ -1,0 +1,51 @@
+{%- assign promo_collection = collections[section.settings.promo_collection]-%}
+
+<section id="promo2nd">
+  <div class="p2-row">
+    <img src="{{ promo_collection.image | img_url: 'large' }}" class="p2-img" />
+    <div class="p2-label">
+      <span class="title">{{ section.settings.sale_header }}</span>
+      <span class="desc">{{ promo_collection.description }}</span>
+      <a href="{{ promo_collection.url }}" style="background-color: {{ section.settings.shop_button_color }}" class="shop-button">{{ section.settings.shop_button }} {{ promo_collection.title }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Second Promo",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "promo_collection",
+      "label": "Promoted Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "text",
+      "id": "sale_header",
+      "label": "Sale Header",
+      "default": "What you love for who you love",
+      "info": "Add header for the collection"
+    },
+    {
+      "type": "text",
+      "id": "shop_button",
+      "label": "Shop Button Title",
+      "default": "Shop"
+    },
+    {
+      "type": "color",
+      "id": "shop_button_color",
+      "label": "Shop Button Color",
+      "default": "#FCA24E"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Second Promo",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,75 @@
+<section id="top-promo">
+  <div class="bg-img"
+  {%- if section.settings.bg_image != blank -%} style="background-image: url('{{ section.settings.bg_image | img_url: 'large' }}')"
+  {% else %}
+  style="background-image: url('{{ 'low-carb-turtle-recipe-20-1.jpg' | asset_url }}')"
+  {% endif %}
+  >
+    <div class="shop-label-1">
+      <h1 style="color: {{ section.settings.title_color }}; background-color: {{ section.settings.bg_title_color }}">{{ section.settings.top_promo_h1 }}</h1>
+    </div>
+    <div class="shop-label-2">
+      <a href="{{ section.settings.button_link }}"><h2 style="color: {{ section.settings.sub_title_color }}; background-color: {{ section.settings.bg_sub_title_color }}">{{ section.settings.top_promo_h2 }}</h2></a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Top Promo",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background"
+    },
+    {
+      "type": "text",
+      "id": "top_promo_h1",
+      "label": "Top Promo Title",
+      "default": "Chewy Caramel Chocolate Turles"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "top_promo_h2",
+      "label": "Top Promo Sub-title",
+      "default": "Shop Now"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "sub_title_color",
+      "label": "Sub-title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "bg_title_color",
+      "label": "Background Title Color",
+      "default": "#FCA24E"
+    },
+    {
+      "type": "color",
+      "id": "bg_sub_title_color",
+      "label": "Background Sub-title Color",
+      "default": "#361D06"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Promo",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

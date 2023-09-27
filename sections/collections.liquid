@@ -1,0 +1,129 @@
+{%- assign collection1 = collections[section.settings.collection1]-%}
+{%- assign collection2 = collections[section.settings.collection2]-%}
+{%- assign collection3 = collections[section.settings.collection3]-%}
+{%- assign collection4 = collections[section.settings.collection4]-%}
+{%- assign collection5 = collections[section.settings.collection5]-%}
+{%- assign collection6 = collections[section.settings.collection6]-%}
+{%- assign collection7 = collections[section.settings.collection7]-%}
+
+<section id="collections">
+<span class="title">{{ section.settings.label }}</span>
+<div class="row toprow">
+  {%- if collection1 != blank -%}
+  <div class="col-lg-3 col-md-6">
+    <a href="{{ collection1.url }}"><img class="resize" src="{{ collection1.image | img_url: 'large' }}" /></a>
+    <span>{{ collection1.title }}</span>
+  </div>
+  {% else %}
+  <div class="col-lg-3 col-md-6 milk-choco">
+    <a href="#"><img class="resize" src="{{ 'milk_choco.png' | asset_url }}" /></a>
+    <span>Milk Chocolate</span>
+  </div>
+  {% endif %}
+  {%- if collection2 != blank -%}
+  <div class="col-lg-3 col-md-6">
+    <a href="{{ collection2.url }}"><img class="resize" src="{{ collection2.image | img_url: 'large' }}" /></a>
+    <span>{{ collection2.title }}</span>
+  </div>
+  {% endif %}
+  {%- if collection3 != blank -%}
+  <div class="col-lg-3 col-md-6">
+    <a href="{{ collection3.url }}"><img class="resize" src="{{ collection3.image | img_url: 'large' }}" /></a>
+    <span>{{ collection3.title }}</span>
+  </div>
+  {% endif %}
+  {%- if collection4 != blank -%}
+  <div class="col-lg-3 col-md-6">
+    <a href="{{ collection4.url }}"><img class="resize" src="{{ collection4.image | img_url: 'large' }}" /></a>
+    <span>{{ collection4.title }}</span>
+  </div>
+  {% endif %}
+</div>
+<div class="row bottomrow">
+  {%- if collection5 != blank -%}
+  <div class="col-md-4">
+    <a href="{{ collection5.url }}"><img class="resize" src="{{ collection5.image | img_url: 'large' }}" /></a>
+    <span>{{ collection5.title }}</span>
+  </div>
+  {% else %}
+  <div class="col-md-4 caramel">
+    <a href="#"><img class="resize" src="{{ 'caramel.png' | asset_url }}" /></a>
+    <span>Caramel</span>
+  </div>
+  {% endif %}
+  {%- if collection6 != blank -%}
+  <div class="col-md-4">
+    <a href="{{ collection6.url }}"><img class="resize" src="{{ collection6.image | img_url: 'large' }}" /></a>
+    <span>{{ collection6.title }}</span>
+  </div>
+  {% endif %}
+  {%- if collection7 != blank -%}
+  <div class="col-md-4">
+    <a href="{{ collection7.url }}"><img class="resize" src="{{ collection7.image | img_url: 'large' }}" /></a>
+    <span>{{ collection7.title }}</span>
+  </div>
+  {% endif %}
+</div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Collections",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection1",
+      "label": "Top Row Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection2",
+      "label": "Top Row Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection3",
+      "label": "Top Row Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection4",
+      "label": "Top Row Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection5",
+      "label": "Bottom Row Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection6",
+      "label": "Bottom Row Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection7",
+      "label": "Bottom Row Collection",
+      "info": "Choose a collection"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Collection Label",
+      "default": "Shop By Flavor"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Collections",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}
